@@ -18,18 +18,13 @@ export default function Vehicles() {
   const [error, setError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
 
-  const handleDelete = (id: number) => {
-    axios
-      .delete(`vehicles/${id}`)
-      .then(() => {
-        setVehicles((prev) => prev.filter((v) => v.id !== id));
-      })
-      .catch((err) => {
-        console.error("Error deleting vehicle:", err);
-      });
-  };
-
   useEffect(() => {
+    getVehicles();
+  }, []);
+
+  const getVehicles = () => {
+    setIsLoading(true);
+
     axios
       .get<Vehicle[]>("vehicles")
       .then((res) => {
@@ -39,8 +34,22 @@ export default function Vehicles() {
         setError(true);
         setErrorMessage(err.message);
       })
-      .finally(() => setIsLoading(false));
-  }, []);
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  const handleDelete = (id: number) => {
+    axios
+      .delete(`vehicles`, { data: { id } })
+      .then(() => {
+        getVehicles();
+      })
+      .catch((err) => {
+        setError(true);
+        setErrorMessage(err.message);
+      });
+  };
 
   return (
     <Container className="py-4">
