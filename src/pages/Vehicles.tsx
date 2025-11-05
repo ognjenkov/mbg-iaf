@@ -29,6 +29,8 @@ export default function Vehicles() {
       .get<Vehicle[]>("vehicles")
       .then((res) => {
         setVehicles(res.data);
+        setError(false);
+        setErrorMessage("");
       })
       .catch((err) => {
         setError(true);
