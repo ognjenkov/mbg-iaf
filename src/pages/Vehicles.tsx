@@ -68,7 +68,7 @@ export default function Vehicles() {
         </Col>
       </Row>
 
-      <Table bordered>
+      <Table bordered style={{ border: "2px solid black" }}>
         <thead>
           <tr className="text-center align-middle">
             <th className="bg-info text-white">ID</th>
