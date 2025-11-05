@@ -115,7 +115,7 @@ function CreateVehicle() {
               size="lg"
               type="number"
               name="firstRegistrationYear"
-              placeholder="First Registration Year"
+              placeholder="First registration year"
               value={form.firstRegistrationYear}
               onChange={handleChange}
               isInvalid={!!errors.firstRegistrationYear}
@@ -130,7 +130,7 @@ function CreateVehicle() {
               size="lg"
               type="number"
               name="cubicCapacity"
-              placeholder="Cubic Capacity (cc)"
+              placeholder="Cubic capacity"
               value={form.cubicCapacity}
               onChange={handleChange}
               isInvalid={!!errors.cubicCapacity}
@@ -145,7 +145,7 @@ function CreateVehicle() {
               size="lg"
               type="text"
               name="fuel"
-              placeholder="Fuel (e.g. Diesel)"
+              placeholder="Fuel"
               value={form.fuel}
               onChange={handleChange}
               isInvalid={!!errors.fuel}

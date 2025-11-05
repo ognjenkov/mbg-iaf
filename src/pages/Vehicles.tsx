@@ -86,10 +86,18 @@ export default function Vehicles() {
           ) : error ? (
             <>
               <tr className="text-center align-middle text-danger">
-                <td colSpan={7}>There has been an error fetching vehicles</td>
+                <td colSpan={7}>{errorMessage}</td>
               </tr>
               <tr className="text-center align-middle text-danger">
-                <td colSpan={7}>{errorMessage}</td>
+                <td colSpan={7}>
+                  <Button
+                    variant="danger"
+                    className="rounded-pill"
+                    onClick={() => getVehicles()}
+                  >
+                    Retry
+                  </Button>
+                </td>
               </tr>
             </>
           ) : vehicles.length === 0 ? (
